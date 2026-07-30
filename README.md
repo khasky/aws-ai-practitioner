@@ -1,0 +1,106 @@
+# Everything you need to know to become AWS AI Practitioner
+
+This repo is a study guide for the **[AWS Certified AI Practitioner (AIF-C01)](https://aws.amazon.com/certification/certified-ai-practitioner/)** exam. It also covers how common AI and generative AI ideas show up on AWS in real projects.
+
+The material follows the **official exam guide** ([PDF](https://docs.aws.amazon.com/pdfs/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.pdf), [HTML hub](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html)). For exam scope, service names, and domain weights, rely on AWS docs and the guide; both can change.
+
+---
+
+## Who this is for
+
+- Professionals who need **foundational AI/ML and generative AI literacy** on AWS.
+- Candidates preparing for **AIF-C01** who want domain-by-domain coverage plus hands-on examples.
+- Anyone mapping **business problems** to the right AWS AI building blocks (without assuming you will train models from scratch).
+
+The exam’s **target candidate** uses AI/ML on AWS but is **not** expected to implement deep model engineering, heavy MLOps pipelines, or organization-wide governance frameworks. On the exam those topics show up as _concepts_ to recognize, not as tasks to perform.
+
+---
+
+## Exam snapshot (official basics)
+
+| Item                 | Detail                                                            |
+| -------------------- | ----------------------------------------------------------------- |
+| **Exam code**        | AIF-C01                                                           |
+| **Level**            | Foundational (AWS Certification)                                  |
+| **Question types**   | Multiple choice, multiple response, ordering, matching            |
+| **Scored questions** | 50 (plus **15 unscored** questions that do not affect your score) |
+| **Passing score**    | **700** on a scaled score of 100–1000                             |
+| **Scoring model**    | Compensatory (overall pass; section weights differ)               |
+
+**Recommended knowledge (from AWS):** familiarity with core AWS services (for example EC2, S3, Lambda, **Amazon Bedrock**, **Amazon SageMaker AI**), the **shared responsibility model**, **IAM**, and **pricing models**. Up to about **six months**’ exposure to AI/ML on AWS is typical for the target candidate.
+
+**Out-of-scope job tasks (examples from AWS):** developing model algorithms, heavy feature engineering, hyperparameter tuning, building full AI/ML pipelines or security/compliance programs. On the exam you need to recognize _what_ these are, not perform them at expert depth.
+
+---
+
+## Content domains and weights (scored content)
+
+| Domain | Topic                                                 | Weight  |
+| ------ | ----------------------------------------------------- | ------- |
+| **1**  | Fundamentals of AI and ML                             | **20%** |
+| **2**  | Fundamentals of GenAI                                 | **24%** |
+| **3**  | Applications of Foundation Models                     | **28%** |
+| **4**  | Guidelines for Responsible AI                         | **14%** |
+| **5**  | Security, Compliance, and Governance for AI Solutions | **14%** |
+
+---
+
+## How to use this repo
+
+1. **Read the domain guides in order** (1 through 5). Later domains assume vocabulary from earlier ones.
+2. **Cross-link to AWS docs** for anything operational (IAM, encryption, regional availability, pricing).
+3. **Run the code examples** under `examples/` to connect API shapes to the concepts (Bedrock, boto3 patterns, evaluation and monitoring ideas).
+4. **Validate exam scope** using the official [in-scope services](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/aif-01-in-scope-services.html) list.
+
+### Suggested study sequence (example)
+
+| Phase | Focus                  | Activities                                                                                  |
+| ----- | ---------------------- | ------------------------------------------------------------------------------------------- |
+| **1** | Vocabulary & lifecycle | Domain 1 guide; sketch one ML lifecycle for a business problem you know.                    |
+| **2** | GenAI building blocks  | Domain 2 guide; list 3 GenAI use cases and 2 failure modes (hallucination, cost).           |
+| **3** | FMs in production      | Domain 3 guide; practice explaining RAG, agents, and evaluation metrics out loud.           |
+| **4** | Responsibility & trust | Domain 4 guide; map tools (Guardrails, Clarify, Model Monitor, A2I) to risks.               |
+| **5** | Security & governance  | Domain 5 guide; trace IAM → encryption → logging for a Bedrock workload on paper.           |
+| **6** | Service mapping        | `guides/06-aws-services-primer.md`; drill “which service for which scenario?”               |
+| **7** | Hands-on               | Run Bedrock examples in a sandbox account; adjust inference parameters and observe changes. |
+
+---
+
+## Guide index
+
+| Guide                                       | File                                                                                             |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Domain 1: AI & ML fundamentals              | [guides/01-fundamentals-ai-and-ml.md](guides/01-fundamentals-ai-and-ml.md)                       |
+| Domain 2: Generative AI fundamentals        | [guides/02-fundamentals-of-genai.md](guides/02-fundamentals-of-genai.md)                         |
+| Domain 3: Foundation models in applications | [guides/03-applications-of-foundation-models.md](guides/03-applications-of-foundation-models.md) |
+| Domain 4: Responsible AI                    | [guides/04-responsible-ai.md](guides/04-responsible-ai.md)                                       |
+| Domain 5: Security, compliance, governance  | [guides/05-security-compliance-governance.md](guides/05-security-compliance-governance.md)       |
+| AWS services at a glance (exam-oriented)    | [guides/06-aws-services-primer.md](guides/06-aws-services-primer.md)                             |
+
+---
+
+## Code examples
+
+| Example                                                                  | Description                                                                           |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| [examples/bedrock_converse.py](examples/bedrock_converse.py)             | Invoke a foundation model with the **Converse** API (messages, inference parameters). |
+| [examples/bedrock_embeddings.py](examples/bedrock_embeddings.py)         | Generate **embeddings** for RAG-style workflows.                                      |
+| [examples/rag_similarity_concept.py](examples/rag_similarity_concept.py) | **Cosine similarity** between vectors (RAG retrieval concept).                        |
+| [examples/requirements.txt](examples/requirements.txt)                   | Minimal Python dependencies for the samples.                                          |
+
+Examples assume credentials via the default AWS credential chain (for example environment variables, `~/.aws/credentials`, or an IAM role). Replace model IDs and regions with values valid for your account.
+
+---
+
+## Official resources
+
+- [AWS Certified AI Practitioner](https://aws.amazon.com/certification/certified-ai-practitioner/) (certification home)
+- [Exam guide (AIF-C01)](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html) (domains, tasks, policies)
+- [Exam Prep on AWS Skill Builder](https://skillbuilder.aws/) (training aligned with AWS Certification)
+- [AWS Well-Architected](https://aws.amazon.com/architecture/well-architected/) (operational excellence, security, cost, sustainability)
+
+---
+
+## Disclaimer
+
+This guide is **educational** and not affiliated with AWS. Exams, service names, and guides change; check AWS documentation before you schedule a test or design production systems.
